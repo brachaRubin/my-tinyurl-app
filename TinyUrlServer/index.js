@@ -15,6 +15,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
 // Database connection
 mongoose
   .connect(process.env.MONGODB_URI)
@@ -25,7 +26,12 @@ mongoose
   });
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://tinyurl-backend-sgp4.onrender.com'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(httpLogger); // Winston HTTP request logger
