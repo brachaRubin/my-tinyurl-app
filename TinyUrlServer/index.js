@@ -24,15 +24,15 @@ mongoose
     console.log('MongoDB connection error:', err);
     process.exit(1);
   });
-
-// Middleware
 app.use(cors({
   origin: ['http://localhost:5173', 'https://tinyurl-backend-sgp4.onrender.com'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
-app.options('*', cors()); // Enable CORS for all routes
+
+// Middleware
+app.options('*', cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(httpLogger); // Winston HTTP request logger
