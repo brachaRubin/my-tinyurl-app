@@ -1,4 +1,3 @@
-// Proposed content for d:\nodeJs\TinyUrlServer\routes\linkRoutes.js
 import express from 'express';
 import * as linkController from '../controllers/linkController.js';
 import * as authController from '../controllers/authController.js'; // Assuming your protect middleware is here
