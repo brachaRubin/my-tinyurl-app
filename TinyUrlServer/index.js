@@ -36,6 +36,9 @@ app.use('/api/users', userRoutes);
 app.use('/api/links', linkRoutes);
 
 app.get('/:shortId', getLinkAndRedirect);
+app.get('/', (req, res) => {
+  res.send('Welcome to the TinyURL API! Use /api/auth, /api/users, or /api/links for more functionality.');
+});
 
 // Error handling
 // app.use(notFound);
